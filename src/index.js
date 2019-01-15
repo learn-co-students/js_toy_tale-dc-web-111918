@@ -19,9 +19,6 @@ addBtn.addEventListener('click', () => {
   }
 })
 
-
-
-
 function loadToys(){
   fetch('http://localhost:3000/toys')
   .then(response=>response.json())
@@ -102,6 +99,7 @@ function onClickToy(e){
   let toyId = e.currentTarget.id
   let newLikes = (e.currentTarget.previousSibling.innerText[7])
   newLikes = parseInt(newLikes) + 1
+  e.currentTarget.previousSibling.innerText = `Likes: ${newLikes}`
   editToy(toyId,newLikes)
 }
 
@@ -117,5 +115,4 @@ function editToy(id,newLikes){
     })
   })
   .then(response=>response.json())
-  //How do I reflect changes on front end???
 }
